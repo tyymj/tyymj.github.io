@@ -8,7 +8,9 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       axios.get("ip").then(resp => {
-        console.info("ip = ", resp.data)
+        var ip = resp.data;
+        var url = "https://" + ip + ":444/vplayer/" 
+        window.location.href=url;
       })
     </script>
   </body>
