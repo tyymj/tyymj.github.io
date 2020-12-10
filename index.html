@@ -7,11 +7,13 @@
   <body>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
-      axios.get("ip").then(resp => {
-        var ip = resp.data;
-        var url = "https://" + ip + ":444/vplayer/" 
-        window.location.href=url;
-      })
+      document.addEventListener('DOMContentLoaded', function() {
+        axios.get("ip").then(resp => {
+          var ip = resp.data;
+          var url = "https://" + ip + ":444/vplayer/" 
+          window.location.href=url;
+        })
+      }, false);
     </script>
   </body>
 </html>
