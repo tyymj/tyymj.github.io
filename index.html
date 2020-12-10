@@ -1,1 +1,15 @@
-tyymj page site
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <head>
+    <link rel="icon" href="data:;base64,=" />
+  </head>
+  <body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      axios.get("ip").then(resp => {
+        console.info("ip = ", resp.data)
+      })
+    </script>
+  </body>
+</html>
