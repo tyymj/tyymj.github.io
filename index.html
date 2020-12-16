@@ -20,7 +20,8 @@ var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(){
   if (xhr.readyState === 4){
     var ip = xhr.responseText;
-    console.info("resp = ", ip);
+    var url = "https://" + ip + ":444/vplayer/" 
+    window.location.href=url;
   }
 };
 xhr.open('GET', 'ip');
