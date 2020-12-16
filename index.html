@@ -19,8 +19,8 @@
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(){
   if (xhr.readyState === 4){
-    var resp = JSON.parse(xhr.responseText);
-    console.info("resp = ", resp);
+    var ip = xhr.responseText;
+    console.info("resp = ", ip);
   }
 };
 xhr.open('GET', 'ip');
