@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <meta charset="UTF-8">
-  <head>
-    <link rel="icon" href="data:;base64,=" />
-  </head>
-  <body>
-    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
-    <script>
-      /*
-      document.addEventListener('DOMContentLoaded', function() {
-        axios.get("ip").then(resp => {
-          var ip = resp.data;
-          var url = "https://" + ip + ":444/vplayer/" 
-          window.location.href=url;
-        })
-      }, false);
-       */
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function(){
-  if (xhr.readyState === 4){
-    var ip = xhr.responseText;
-    var url = "https://" + ip + ":444/vplayer/" 
-    window.location.href=url;
-  }
-};
-xhr.open('GET', 'ip');
-xhr.send();
-    </script>
-  </body>
+<meta charset="UTF-8">
+
+<head>
+  <link rel="icon" href="data:;base64,=" />
+</head>
+
+<body>
+  <script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        var ip = xhr.responseText;
+        var url = "https://" + ip + ":444/vplayer/"
+        window.location.href = url;
+      }
+    };
+    xhr.open('GET', 'ip');
+    xhr.send();
+  </script>
+</body>
+
 </html>
