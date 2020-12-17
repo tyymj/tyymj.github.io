@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+
+<head>
+  <link rel="icon" href="data:;base64,=" />
+</head>
+
+<body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          var ip = xhr.responseText;
+          var url = "https://" + ip + ":444/flood/"
+          window.location.href = url;
+        }
+      };
+      xhr.open('GET', 'ip');
+      xhr.send();
+    }, false);
+  </script>
+</body>
+
+</html>
