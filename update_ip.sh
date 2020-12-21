@@ -6,6 +6,7 @@ home=$(cd `dirname $0`; pwd)
 cd $home
 
 # fetch and compare current ip
+git pull
 old_ip=$(cat ip)
 current_ip=$(curl -s 'http://ip-api.com/line' | tail -n 1)
 echo "$now old_ip=$old_ip, current_ip=$current_ip"
