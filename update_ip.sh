@@ -20,4 +20,5 @@ echo "$now ip need update"
 echo $current_ip > ip
 git add ip
 git commit -m "update ip from $old_ip to $current_ip"
-git push
+git push -f
+git push -f vps
