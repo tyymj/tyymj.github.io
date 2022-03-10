@@ -1,6 +1,7 @@
 #/bin/bash
 # crontab -e
 # */10 * * * * sh /data/projects/tyymj.github.io/update_ip.sh > /data/projects/tyymj.github.io/change.log 2>&1
+# */10 * * * * sh /data/projects/tyymj.github.io/update_ip.sh > /dev/null 2>&1
 now=$(TZ='Asia/Shanghai' date +"%Y-%m-%d %H:%M:%S")
 home=$(cd `dirname $0`; pwd)
 cd $home
