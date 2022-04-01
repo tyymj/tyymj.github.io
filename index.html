@@ -13,7 +13,7 @@
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
           var ip = xhr.responseText;
-          var url = "https://" + ip + ":444/vplayer/"
+          var url = "https://" + ip + ":444"
           window.location.href = url;
         }
       };
