@@ -9,7 +9,8 @@ cd $home
 # fetch and compare current ip
 git pull
 old_ip=$(cat ip)
-current_ip=$(curl -s 'http://ip-api.com/line' | tail -n 1)
+#current_ip=$(curl -s 'http://ip-api.com/line' | tail -n 1)
+current_ip=$(curl -sL https://www.lddgo.net/api/GetIp|jq '.data.ip' -r)
 echo "$now old_ip=$old_ip, current_ip=$current_ip"
 if [ "$current_ip" = "$old_ip" ];then
   echo "$now ip no change"
