@@ -2,6 +2,22 @@
 # crontab -e
 # */10 * * * * sh /data/projects/tyymj.github.io/update_ip.sh > /data/projects/tyymj.github.io/change.log 2>&1
 # */10 * * * * sh /data/projects/tyymj.github.io/update_ip.sh > /dev/null 2>&1
+
+if [ ! -f /usr/bin/curl ]; then
+  echo "not found curl, install curl now."
+  sudo apt-get install -y curl
+fi
+
+if [ ! -f /usr/bin/jq ]; then
+  echo "not found jq, install jq now."
+  sudo apt-get install -y jq
+fi
+
+if [ ! -f /usr/bin/git ]; then
+  echo "not found git, install git now."
+  sudo apt-get install -y git
+fi
+
 now=$(TZ='Asia/Shanghai' date +"%Y-%m-%d %H:%M:%S")
 home=$(cd `dirname $0`; pwd)
 cd $home
