@@ -22,12 +22,15 @@
       xhr.send();
     }, false);
 */
-  var res = await fetch("ip");
-  var ip = await res.text();
-  //alert(ip);
-  var url = "https://" + ip + ":444/pages/"
-  //window.location.href = url;
-  alert(url);
+  async function jump(){
+    var res = await fetch("ip");
+    var ip = await res.text();
+    //alert(ip);
+    var url = "https://" + ip + ":444/pages/"
+    //window.location.href = url;
+    alert(url);
+  }
+  await jump();
   </script>
 </body>
 
