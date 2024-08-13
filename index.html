@@ -22,15 +22,17 @@
       xhr.send();
     }, false);
 */
-  async function jump(){
-    var res = await fetch("ip");
-    var ip = await res.text();
-    //alert(ip);
-    var url = "https://" + ip + ":444/pages/"
-    //window.location.href = url;
-    alert(url);
+  function jump() {
+    var res = fetch("ip").then(function(res) {
+      res.text().then(function(ip) {
+        var url = "https://" + ip + ":444/pages/"
+        //window.location.href = url;
+        alert(url);
+      });
+    });
   }
-  await jump();
+
+  jump();
   </script>
 </body>
 
