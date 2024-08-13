@@ -8,6 +8,7 @@
 
 <body>
   <script>
+/*
     document.addEventListener('DOMContentLoaded', function () {
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
@@ -20,6 +21,12 @@
       xhr.open('GET', 'ip');
       xhr.send();
     }, false);
+*/
+  var res = await fetch("ip");
+  var ip = await res.text();
+  //alert(ip);
+  var url = "https://" + ip + ":444/pages/"
+  window.location.href = url;
   </script>
 </body>
 
