@@ -22,11 +22,19 @@ now=$(TZ='Asia/Shanghai' date +"%Y-%m-%d %H:%M:%S")
 home=$(cd `dirname $0`; pwd)
 cd $home
 
+get_ip() {
+    ip=$(curl -s "https://api.ipify.org/")
+    echo "$ip"
+}
+
 # fetch and compare current ip
 git pull
 old_ip=$(cat ip)
 #current_ip=$(curl -s 'http://ip-api.com/line' | tail -n 1)
-current_ip=$(curl -sL https://www.lddgo.net/api/GetIp|jq '.data.ip' -r)
+
+current_ip=$(get_ip)
+echo "current_ip: $current_ip"
+
 echo "$now old_ip=$old_ip, current_ip=$current_ip"
 if [ "$current_ip" = "$old_ip" ];then
   echo "$now ip no change"
