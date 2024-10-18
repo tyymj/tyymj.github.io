@@ -24,7 +24,9 @@ cd $home
 
 get_ip() {
     #ip=$(curl -s "https://api.ipify.org/")
-    ip=$(curl -sL "https://www.ip.cn/api/index?ip=&type=0" | jq -c ".ip" | tr -d '"')
+    #ip=$(curl -sL "https://www.ip.cn/api/index?ip=&type=0" | jq -c ".ip" | tr -d '"')
+    #ip=$(curl -sL "https://api64.ipify.org?format=json" | jq ".ip" | tr -d '"')
+    ip=$(curl "https://ipinfo.io/ip")
     echo "$ip"
 }
 
