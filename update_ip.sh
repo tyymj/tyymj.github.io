@@ -23,7 +23,8 @@ home=$(cd `dirname $0`; pwd)
 cd $home
 
 get_ip() {
-    ip=$(curl -s "https://api.ipify.org/")
+    #ip=$(curl -s "https://api.ipify.org/")
+    ip=$(curl -sL "https://www.ip.cn/api/index?ip=&type=0" | jq -c ".ip" | tr -d '"')
     echo "$ip"
 }
 
