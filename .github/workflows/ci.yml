@@ -1,0 +1,31 @@
+name: CI
+on:
+  # - push # standard push on main or other branches
+  - workflow_dispatch # run manually via Github UI
+  - create # i.e. tags
+
+jobs:
+  build:
+    name: Build TemplePlus
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download keys
+        run: |
+          curl -L -o "keys.zip" "https://files-prodkeys.b-cdn.net/prodkeys/Prodkeys.net_v19.0.0.zip"
+          unzip -q keys.zip
+          ls -lh
+      - name: Build
+        run: |
+          zip -r static.zip *
+        shell: bash
+      - name: Upload keys
+        uses: actions/upload-artifact@v4
+        with:
+          name: keys
+          path: keys.zip
+      - name: Upload static
+        uses: actions/upload-artifact@v4
+        with:
+          name: static
+          path: static.zip
