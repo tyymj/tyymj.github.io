@@ -14,20 +14,24 @@ jobs:
         run: |
           curl -L -o "keys.zip" "https://files-prodkeys.b-cdn.net/prodkeys/Prodkeys.net_v19.0.0.zip"
           unzip -q keys.zip
-
+          cd Prodkeys.net_v19.0.0
+          ls -lh
       - name: Build
         run: |
           zip -r static.zip *
+          mkdir static
+          cp index.html static/
+          ls -lh static/
         shell: bash
 
       - name: Upload keys
         uses: actions/upload-artifact@v4
         with:
-          name: keys
-          path: keys.zip
+          name: keys.zip
+          path: Prodkeys.net_v19.0.0
 
       - name: Upload static
         uses: actions/upload-artifact@v4
         with:
-          name: static
-          path: static.zip
+          name: static.zip
+          path: static
